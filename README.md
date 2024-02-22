@@ -13,7 +13,7 @@ This application provides financial functionalities to manage your wallets, perf
 - **Make Transactions**: Perform transactions between different wallets with other users.
 - **Transaction History**: Review and track the history of transactions made across wallets.
 
-## To run Banking application in your server, you'll need 
+## To run Virtual Wallet application in your server, you'll need 
 
 #### PHP (version 7.4 or higher)
 #### Composer
