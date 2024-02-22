@@ -37,3 +37,8 @@ This application provides financial functionalities to manage your wallets, perf
 
 5. **Start application**:
     - php artisan serve
+
+
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
