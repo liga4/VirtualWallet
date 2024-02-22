@@ -18,7 +18,6 @@
                         <div class="mb-4">
                             <label for="wallet_id" class="block text-sm font-medium text-gray-600">Select Wallet</label>
                             <select id="wallet_id" name="wallet_id" class="mt-1 p-2 border rounded-md w-full" required>
-                                <option disabled selected>Choose a wallet</option>
                                 @foreach($userWallets as $wallet)
                                     <option value="{{ $wallet->id }}">{{ $wallet->name }} (${{ $wallet->balance }})</option>
                                 @endforeach
@@ -61,9 +60,6 @@
                             <label for="reference" class="block text-sm font-medium text-gray-600">Reference</label>
                             <textarea id="reference" name="reference" rows="2" class="mt-1 p-2 border rounded-md w-full"></textarea>
                         </div>
-
-
-
                         <div class="mb-4">
                             <x-button type="submit">
                                 {{ __('Submit') }}
