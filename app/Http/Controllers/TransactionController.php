@@ -10,7 +10,6 @@ use App\Rules\ValidReceiver;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class TransactionController extends Controller
@@ -64,9 +63,7 @@ class TransactionController extends Controller
         } else {
             $transaction->update(['fraudulent' => false]);
         }
-
-
-        return redirect()->back()->with('success', 'Transaction marked as fraudulent');
+        return redirect()->back();
     }
 
     public function destroy($id): RedirectResponse
