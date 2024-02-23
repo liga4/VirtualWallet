@@ -21,16 +21,11 @@
                                 @foreach($userWallets as $wallet)
                                     <option value="{{ $wallet->id }}">{{ $wallet->name }} (${{ $wallet->balance }})</option>
                                 @endforeach
-                                @if ($errors->has('wallet_id'))
-                                    <div class="alert alert-danger error-message" style="color: red">
-                                        {{ $errors->first('wallet_id') }}
-                                    </div>
-                                @endif
                             </select>
                         </div>
                         <div class="mb-4">
                             <label for="receivers_name" class="block text-sm font-medium text-gray-600">Receivers Name</label>
-                            <input type="text" id="receivers_name" name="receivers_name" class="mt-1 p-2 border rounded-md w-full" required>
+                            <input type="text" id="receivers_name" value="{{ old('receivers_name') }}" name="receivers_name" class="mt-1 p-2 border rounded-md w-full" required>
                             @if ($errors->has('receivers_name'))
                                 <div class="alert alert-danger error-message" style="color: red">
                                     {{ $errors->first('receivers_name') }}
@@ -39,7 +34,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="receiver_wallet_number" class="block text-sm font-medium text-gray-600">Receivers Wallet number</label>
-                            <input type="text" id="receiver_wallet_number" name="receiver_wallet_number" class="mt-1 p-2 border rounded-md w-full" required>
+                            <input type="text" id="receiver_wallet_number" value="{{ old('receiver_wallet_number') }}" name="receiver_wallet_number" class="mt-1 p-2 border rounded-md w-full" required>
                             @if ($errors->has('receiver_wallet_number'))
                                 <div class="alert alert-danger error-message" style="color: red">
                                     {{ $errors->first('receiver_wallet_number') }}
@@ -48,7 +43,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="amount" class="block text-sm font-medium text-gray-600">Amount</label>
-                            <input type="number" id="amount" name="amount" class="mt-1 p-2 border rounded-md w-full" required>
+                            <input type="number" id="amount" value="{{ old('amount') }}" name="amount" class="mt-1 p-2 border rounded-md w-full" required>
                             @if ($errors->has('amount'))
                                 <div class="alert alert-danger error-message" style="color: red">
                                     {{ $errors->first('amount') }}
@@ -58,7 +53,7 @@
 
                         <div class="mb-4">
                             <label for="reference" class="block text-sm font-medium text-gray-600">Reference</label>
-                            <textarea id="reference" name="reference" rows="2" class="mt-1 p-2 border rounded-md w-full"></textarea>
+                            <textarea id="reference" name="reference"  rows="2" class="mt-1 p-2 border rounded-md w-full" required></textarea>
                         </div>
                         <div class="mb-4">
                             <x-button type="submit">

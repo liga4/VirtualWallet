@@ -16,10 +16,13 @@ class ValidName implements Rule
 
     public function passes($attribute, $value)
     {
-        $wallet = Wallet::where('wallet_number', $this->walletNumber)->first();
+        if(Wallet::where('wallet_number', $this->walletNumber)->exists()){
+            $wallet = Wallet::where('wallet_number', $this->walletNumber)->first();
             $user = User::find($wallet->user_id);
             $name = $user->name;
             return $value == $name;
+        }
+        return false;
     }
 
     public function message()

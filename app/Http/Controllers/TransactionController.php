@@ -7,6 +7,7 @@ use App\Models\Wallet;
 use App\Rules\ValidAmount;
 use App\Rules\ValidName;
 use App\Rules\ValidReceiver;
+use App\Rules\ValidWallet;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class TransactionController extends Controller
         $wallet = Wallet::where('id', $request->wallet_id)->first();
 
         $request->validate([
-            'wallet_id' => ['required'],
+            'wallet_id' => ['required', 'integer'],
             'receivers_name' => ['required', 'string', 'max:255', new ValidName($request->receiver_wallet_number)],
             'receiver_wallet_number' => ['required', new ValidReceiver()],
             'amount' => ['required', 'numeric', new ValidAmount($wallet->balance)],

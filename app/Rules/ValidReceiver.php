@@ -13,6 +13,6 @@ class ValidReceiver implements Rule
 
     public function message()
     {
-        return 'Account number doesnt match existing account.';
+        return 'Wallet number does not match existing wallet.';
     }
 }
